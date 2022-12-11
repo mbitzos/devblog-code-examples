@@ -12,7 +12,7 @@ public static class CoroutineUtil {
   /// </summary>
   /// <param name="duration">How long our lerp will take</param>
   /// <param name="action">The action to perform per frame of the lerp, is given the progress t in [0,1]</param>
-  /// <param name="curve">If we want out time curve to follow a specific animation curve</param>
+  /// <param name="curve">If we want our time curve to follow a specific animation curve</param>
   /// <returns></returns>
   public static IEnumerator Lerp(float duration, Action<float> action, bool realTime = false, bool smooth = false, AnimationCurve curve = null, bool inverse = false) {
     float time = 0;
