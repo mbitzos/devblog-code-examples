@@ -1,4 +1,3 @@
-using Player;
 using UnityEngine;
 
 /// <summary>
@@ -36,7 +35,7 @@ public class Stairs : MonoBehaviour {
   void OnTriggerEnter2D(Collider2D other) {
     PlayerController player = other.gameObject.GetComponent<PlayerController>();
     if (player) {
-      player.Stairs.Push(this);
+      player.CurrentStairs.Push(this);
     }
   }
 
@@ -44,7 +43,7 @@ public class Stairs : MonoBehaviour {
   void OnTriggerExit2D(Collider2D other) {
     PlayerController player = other.gameObject.GetComponent<PlayerController>();
     if (player) {
-      player.Stairs.Pop();
+      player.CurrentStairs.Pop();
     }
   }
 
