@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
   const float StairSlowDownYPos = 0.8f;
   const float StairSlowDownYNeg = 0.6f;
 
-  public Stack<Stairs> Stairs = new Stack<>();
+  public Stack<Stairs> currentStairs = new Stack<Stairs>();
   /// <summary>
   /// Function that controls the actual movement
   /// </summary>
@@ -25,6 +25,10 @@ public class PlayerController : MonoBehaviour {
     SetPosition(pos);
   }
 
+  private void SetPosition(Vector2 position) {
+    transform.position = position;
+  }
+
   /// <summary>
   /// Converts a vector to conform to stairs angle
   /// </summary>
@@ -35,7 +39,7 @@ public class PlayerController : MonoBehaviour {
     // exit early
     if (Stairs.Count == 0) return movement;
 
-    Stairs stairs = Stairs.Peek();
+    Stairs stairs = currentStairs.Peek();
     Vector2 stairsDirection = stairs.GetDirection();
 
     // apply slows for vertical direction
